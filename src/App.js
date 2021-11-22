@@ -10,12 +10,12 @@ function App() {
 
   const addToList = () => {
     const foodList = async () => {
-      await axios.post('http://localhost:3001/insert', {
+      await axios.post('https://mern-trial2.herokuapp.com/insert', {
         foodName: foodName,
         days: days
       })
   
-      const res = await axios.get('http://localhost:3001/read')
+      const res = await axios.get('https://mern-trial2.herokuapp.com/read')
       setFoodList(res.data)
      }
   
@@ -24,12 +24,12 @@ function App() {
 
   const updateFood = id => {
     const updateFoodList = async () => {
-      await axios.put('http://localhost:3001/update', {
+      await axios.put('https://mern-trial2.herokuapp.com/update', {
         id: id,
         newFoodName: newFoodName
       })  
 
-      const res = await axios.get('http://localhost:3001/read')
+      const res = await axios.get('https://mern-trial2.herokuapp.com/read')
       setFoodList(res.data)
      }
   
@@ -38,9 +38,9 @@ function App() {
 
   const deleteFood = id => {
     const updateFoodList = async () => {
-      await axios.delete(`http://localhost:3001/delete/${id}`)
+      await axios.delete(`https://mern-trial2.herokuapp.com/delete/${id}`)
 
-      const res = await axios.get('http://localhost:3001/read')
+      const res = await axios.get('https://mern-trial2.herokuapp.com/read')
       setFoodList(res.data)
      }
   
@@ -49,7 +49,7 @@ function App() {
 
   useEffect(() => {
    const foodList = async () => {
-    const res = await axios.get('http://localhost:3001/read')
+    const res = await axios.get('https://mern-trial2.herokuapp.com/read')
     setFoodList(res.data)
    }
 
